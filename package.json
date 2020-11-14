@@ -1,0 +1,59 @@
+{
+  "name": "spacesvr-io",
+  "version": "0.0.0",
+  "private": true,
+  "license": "MIT",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build && next export",
+    "start": "next start",
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
+    "process-gltf": "./scripts/process-gltf.sh"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged"
+    }
+  },
+  "dependencies": {
+    "@emotion/core": "^10.0.28",
+    "@emotion/styled": "^10.0.27",
+    "@react-three/cannon": "^0.5.3",
+    "@react-three/drei": "^2.2.2",
+    "@react-three/flex": "^0.5.2",
+    "@react-three/postprocessing": "^1.4.1",
+    "@react-three/xr": "^1.1.0",
+    "babel-plugin-glsl": "^1.0.0",
+    "babel-plugin-macros": "^2.8.0",
+    "glsl-noise": "^0.0.0",
+    "next": "9.4.4",
+    "react": "17.0.1",
+    "react-device-detect": "^1.13.1",
+    "react-dom": "16.13.1",
+    "react-facebook-pixel": "^1.0.3",
+    "react-ga": "^3.1.2",
+    "react-spring": "^8.0.27",
+    "react-three-fiber": "^5.1.4",
+    "simplex-noise": "^2.4.0",
+    "spacesvr": "^1.0.4",
+    "three": "^0.122.0"
+  },
+  "devDependencies": {
+    "@react-three/gltfjsx": "^3.0.8",
+    "@types/node": "^14.0.13",
+    "@types/react": "^16.9.36",
+    "@typescript-eslint/eslint-plugin": "^3.2.0",
+    "@typescript-eslint/parser": "^3.2.0",
+    "eslint": "^7.2.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-react": "^7.20.0",
+    "eslint-plugin-react-hooks": "^4.0.4",
+    "gltf-pipeline": "^3.0.0",
+    "husky": "^4.2.5",
+    "next-compose-plugins": "^2.2.0",
+    "next-transpile-modules": "^3.3.0",
+    "prettier": "2.0.5",
+    "pretty-quick": "^2.0.1",
+    "typescript": "^3.9.5"
+  }
+}
