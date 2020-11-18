@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import { useAnalytics } from "services/analytics";
 import SpacesVREntity from "components/SpacesVREntity";
 import Floor from "components/Floor";
@@ -23,7 +24,9 @@ const SpacesVR = () => {
     <StandardEnvironment>
       <fog attach="fog" args={[0xfffffff, 0, RENDER_DIST]} />
       <Background color={0xffffff} />
-      <SpacesVREntity />
+      <Suspense fallback={null}>
+        <SpacesVREntity />
+      </Suspense>
       <Floor />
       <Entities renderdist={RENDER_DIST} />
       <ambientLight intensity={0.3} />

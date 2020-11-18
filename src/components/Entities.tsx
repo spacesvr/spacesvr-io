@@ -2,13 +2,13 @@ import React, { useMemo } from "react";
 import { Vector3 } from "three";
 import { Floating } from "spacesvr/modifiers";
 
-const NUM_ENTITIES = 31;
+const NUM_ENTITIES = 42;
 const HEIGHT_POWER = 6;
-const ENTITY_RADIUS = 2;
+const ENTITY_RADIUS = 0.75;
 const SPAWN_X_MULT = 2.2; // [-SPAWN / 2, SPAWN / 2]
 const SPAWN_Y_MULT = 1.1; // [0, SPAWN]
 const SPAWN_Z_MULT = 2.2; // [-SPAWN / 2, SPAWN / 2]
-const SPACESVR_ENTITY = new Vector3(0, ENTITY_RADIUS + 1, 0);
+const SPACESVR_ENTITY = new Vector3(0, ENTITY_RADIUS + 0.1, 0);
 
 type GenericEntityProps = {
   seed: number;
@@ -22,7 +22,7 @@ const GenericEntity = (props: GenericEntityProps) => {
 
   return (
     <group position={position}>
-      <Floating>
+      <Floating height={0.1}>
         <mesh castShadow receiveShadow>
           <sphereBufferGeometry args={[ENTITY_RADIUS, 20, 20]} />
           <meshStandardMaterial color={color} />

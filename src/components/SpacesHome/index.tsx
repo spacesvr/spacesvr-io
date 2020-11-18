@@ -7,7 +7,7 @@ import { Logo } from "spacesvr/components";
 const SpacesHome = (props: JSX.IntrinsicElements["group"]) => {
   return (
     <group {...props}>
-      <group scale={[0.025, 0.025, 0.025]}>
+      <group scale={[0.0025, 0.0025, 0.0025]}>
         <HomeBlue position-x={50} />
         <HomePurple position-z={-30} />
         <HomeRed position-z={60} />
