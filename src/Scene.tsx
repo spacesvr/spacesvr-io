@@ -4,8 +4,9 @@ import SpacesVREntity from "components/SpacesVREntity";
 import Floor from "components/Floor";
 import { softShadows } from "@react-three/drei";
 import Entities from "components/Entities";
-import { StandardEnvironment } from "spacesvr";
+import { KeyframeEnvironment, Keyframe } from "spacesvr";
 import { Background } from "spacesvr/components";
+import { Vector3 } from "three";
 
 const RENDER_DIST = 50;
 
@@ -20,12 +21,17 @@ softShadows({
 const SpacesVR = () => {
   useAnalytics();
 
+  const keyframes: Keyframe[] = [
+    { label: "over", position: new Vector3(0.3, 1.5, 0.8) },
+    { label: "presetn", position: new Vector3(0, 0.86, 0) },
+  ];
+
   return (
-    <StandardEnvironment>
+    <KeyframeEnvironment keyframes={keyframes}>
       <fog attach="fog" args={[0xfffffff, 0, RENDER_DIST]} />
       <Background color={0xffffff} />
       <Suspense fallback={null}>
-        <SpacesVREntity />
+        <SpacesVREntity rotation-y={Math.PI} />
       </Suspense>
       <Floor />
       <Entities renderdist={RENDER_DIST} />
@@ -41,7 +47,7 @@ const SpacesVR = () => {
         shadow-camera-top={RENDER_DIST}
         shadow-camera-bottom={-RENDER_DIST}
       />
-    </StandardEnvironment>
+    </KeyframeEnvironment>
   );
 };
 

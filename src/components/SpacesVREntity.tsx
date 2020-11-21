@@ -18,49 +18,43 @@ const SpacesVREntity = (props: JSX.IntrinsicElements["group"]) => {
 
   return (
     <group {...props}>
-      <Floating height={0.1}>
-        <SpacesHome position-y={HEIGHT} />
-        <mesh position-y={HEIGHT} rotation-x={Math.PI}>
-          <sphereBufferGeometry
-            args={[
-              RADIUS,
-              SUBDIVISIONS,
-              SUBDIVISIONS,
-              0,
-              Math.PI * 2,
-              0,
-              -Math.PI / 2,
-            ]}
-          />
-          <meshStandardMaterial color={0xffffff} side={THREE.DoubleSide} />
-        </mesh>
-        <mesh
-          position-y={HEIGHT + INNER_RADIUS}
-          rotation-x={-Math.PI / 2}
-          castShadow
-          receiveShadow
-        >
-          <circleBufferGeometry args={[INNER_RADIUS, SUBDIVISIONS * 10]} />
-          <meshStandardMaterial
-            transparent
-            opacity={0}
-            side={THREE.DoubleSide}
-          />
-        </mesh>
-        <mesh position-y={HEIGHT} rotation-x={-Math.PI / 2}>
-          <planeBufferGeometry
-            args={[INNER_RADIUS * 2, INNER_RADIUS * 2, 500, 500]}
-          />
-          <meshStandardMaterial
-            color={0xbbbbbb}
-            transparent
-            displacementMap={heightmap}
-            displacementScale={0.2}
-            alphaMap={alphaMap}
-            bumpMap={heightmap}
-          />
-        </mesh>
-      </Floating>
+      <SpacesHome position-y={HEIGHT} />
+      <mesh position-y={HEIGHT} rotation-x={Math.PI}>
+        <sphereBufferGeometry
+          args={[
+            RADIUS,
+            SUBDIVISIONS,
+            SUBDIVISIONS,
+            0,
+            Math.PI * 2,
+            0,
+            -Math.PI / 2,
+          ]}
+        />
+        <meshStandardMaterial color={0xffffff} side={THREE.DoubleSide} />
+      </mesh>
+      <mesh
+        position-y={HEIGHT + INNER_RADIUS}
+        rotation-x={-Math.PI / 2}
+        castShadow
+        receiveShadow
+      >
+        <circleBufferGeometry args={[INNER_RADIUS, SUBDIVISIONS * 10]} />
+        <meshStandardMaterial transparent opacity={0} side={THREE.DoubleSide} />
+      </mesh>
+      <mesh position-y={HEIGHT} rotation-x={-Math.PI / 2}>
+        <planeBufferGeometry
+          args={[INNER_RADIUS * 2, INNER_RADIUS * 2, 500, 500]}
+        />
+        <meshStandardMaterial
+          color={0xbbbbbb}
+          transparent
+          displacementMap={heightmap}
+          displacementScale={0.2}
+          alphaMap={alphaMap}
+          bumpMap={heightmap}
+        />
+      </mesh>
     </group>
   );
 };
