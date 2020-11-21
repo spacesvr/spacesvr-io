@@ -8,27 +8,74 @@ import { GLTF } from "three/examples/jsm/loaders/GLTFLoader";
 
 type GLTFResult = GLTF & {
   nodes: {
-    PinkJohn: THREE.Mesh;
+    Tree: THREE.Mesh;
+    Structure: THREE.Mesh;
+    Desk: THREE.Mesh;
+    Drafting_Table: THREE.Mesh;
+    Telescope: THREE.Mesh;
+    Whiteboard: THREE.Mesh;
+    Nature: THREE.Mesh;
   };
   materials: {
-    PinkJohnMat: THREE.MeshStandardMaterial;
+    SpruceBranch: THREE.MeshStandardMaterial;
+    Structure: THREE.MeshStandardMaterial;
+    Desk: THREE.MeshStandardMaterial;
+    ["Drafting Table"]: THREE.MeshStandardMaterial;
+    Telescope: THREE.MeshStandardMaterial;
+    Whiteboard: THREE.MeshStandardMaterial;
+    Nature: THREE.MeshStandardMaterial;
   };
 };
 
 const FILE_URL =
-  "https://d27rt3a60hh1lx.cloudfront.net/models/Spaces4_1-1604712981/spacesvr_04.1.glb";
+  "https://d27rt3a60hh1lx.cloudfront.net/models/spaces7_1-1605952298/spacesvr_07.1.glb";
 
 export default function Model(props: JSX.IntrinsicElements["group"]) {
   const group = useRef<THREE.Group>();
   const { nodes, materials } = useGLTF(FILE_URL) as GLTFResult;
   return (
     <group ref={group} {...props}>
-      <group position-y={6.15}>
+      <group>
         <mesh
-          material={materials.PinkJohnMat}
-          geometry={nodes.PinkJohn.geometry}
-          name="PinkJohn"
-          rotation={[Math.PI, -Math.PI / 6, Math.PI]}
+          material={materials.SpruceBranch}
+          geometry={nodes.Tree.geometry}
+          name="Tree"
+          rotation={[-Math.PI / 2, 0, 0]}
+          scale={[2, 2, 2.5]}
+        />
+        <mesh
+          material={materials.Structure}
+          geometry={nodes.Structure.geometry}
+          name="Structure"
+        />
+        <mesh
+          material={materials.Desk}
+          geometry={nodes.Desk.geometry}
+          name="Desk"
+          rotation={[0, 0, 0]}
+        />
+        <mesh
+          material={materials["Drafting Table"]}
+          geometry={nodes.Drafting_Table.geometry}
+          name="Drafting_Table"
+          rotation={[0, 0, 0]}
+        />
+        <mesh
+          material={materials.Telescope}
+          geometry={nodes.Telescope.geometry}
+          name="Telescope"
+          rotation={[0, -Math.PI / 6, 0]}
+          scale={[0.015, 0.015, 0.015]}
+        />
+        <mesh
+          material={materials.Whiteboard}
+          geometry={nodes.Whiteboard.geometry}
+          name="Whiteboard"
+        />
+        <mesh
+          material={materials.Nature}
+          geometry={nodes.Nature.geometry}
+          name="Nature"
         />
       </group>
     </group>

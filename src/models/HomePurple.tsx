@@ -8,26 +8,33 @@ import { GLTF } from "three/examples/jsm/loaders/GLTFLoader";
 
 type GLTFResult = GLTF & {
   nodes: {
-    PurpleJohn: THREE.Mesh;
+    Rocks: THREE.Mesh;
+    Structure: THREE.Mesh;
   };
   materials: {
-    PurpleJohnMat: THREE.MeshStandardMaterial;
+    Rocks: THREE.MeshStandardMaterial;
+    Structure: THREE.MeshStandardMaterial;
   };
 };
 
 const FILE_URL =
-  "https://d27rt3a60hh1lx.cloudfront.net/models/Spaces4_3-1604713258/spacesvr_04.3.glb";
+  "https://d27rt3a60hh1lx.cloudfront.net/models/spaces7_3-1605954681/spacesvr_07.3.glb";
 
 export default function Model(props: JSX.IntrinsicElements["group"]) {
   const group = useRef<THREE.Group>();
   const { nodes, materials } = useGLTF(FILE_URL) as GLTFResult;
   return (
     <group ref={group} {...props}>
-      <group position-y={6.5}>
+      <group position-y={17}>
         <mesh
-          material={materials.PurpleJohnMat}
-          geometry={nodes.PurpleJohn.geometry}
-          name="PurpleJohn"
+          material={materials.Rocks}
+          geometry={nodes.Rocks.geometry}
+          name="Rocks"
+        />
+        <mesh
+          material={materials.Structure}
+          geometry={nodes.Structure.geometry}
+          name="Structure"
         />
       </group>
     </group>

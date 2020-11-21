@@ -17,7 +17,7 @@ then
     echo -e "🛑 Couldn't find glb or gltf, exiting..."
     exit
 fi
-ç
+
 # get correct file extension (glb vs gltf)
 EXTENSION="glb"
 if [ $NUM_GLTF != 0 ]

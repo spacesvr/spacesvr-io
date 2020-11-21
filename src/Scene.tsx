@@ -23,11 +23,18 @@ const SpacesVR = () => {
 
   const keyframes: Keyframe[] = [
     { label: "over", position: new Vector3(0.3, 1.5, 0.8) },
-    { label: "presetn", position: new Vector3(0, 0.86, 0) },
+    { label: "entrance", position: new Vector3(0, 0.855, 0.4) },
+    { label: "campfire", position: new Vector3(0, 0.855, 0) },
+    { label: "blue", position: new Vector3(-0.065, 0.855, -0.02) },
+    { label: "red", position: new Vector3(0, 0.855, -0.07) },
+    { label: "purple", position: new Vector3(0.064, 0.86, 0) },
   ];
 
   return (
-    <KeyframeEnvironment keyframes={keyframes}>
+    <KeyframeEnvironment
+      keyframes={keyframes}
+      canvasProps={{ camera: { near: 0.0001 } }}
+    >
       <fog attach="fog" args={[0xfffffff, 0, RENDER_DIST]} />
       <Background color={0xffffff} />
       <Suspense fallback={null}>

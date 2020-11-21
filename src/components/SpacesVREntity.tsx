@@ -1,8 +1,6 @@
-import { Floating } from "spacesvr/modifiers";
 import SpacesHome from "./SpacesHome";
 import { useLoader } from "react-three-fiber";
 import * as THREE from "three";
-import { Color } from "three";
 
 const RADIUS = 0.75;
 const HEIGHT = RADIUS + 0.1;
