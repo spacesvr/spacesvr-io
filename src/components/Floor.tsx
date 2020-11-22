@@ -8,7 +8,7 @@ const Floor = () => {
         <planeBufferGeometry args={[PLANE_WIDTH, PLANE_HEIGHT]} />
         <shadowMaterial transparent opacity={0.2} />
       </mesh>
-      <mesh rotation-x={-Math.PI / 2} position-y={-0.01}>
+      <mesh rotation-x={-Math.PI / 2} position-y={-0.2}>
         <planeBufferGeometry args={[PLANE_WIDTH, PLANE_HEIGHT]} />
         <meshStandardMaterial />
       </mesh>

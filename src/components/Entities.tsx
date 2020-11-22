@@ -2,7 +2,7 @@ import React, { useMemo } from "react";
 import { Vector3 } from "three";
 import { Floating } from "spacesvr/modifiers";
 
-const NUM_ENTITIES = 42;
+const NUM_ENTITIES = 32;
 const HEIGHT_POWER = 6;
 const ENTITY_RADIUS = 0.75;
 const SPAWN_X_MULT = 2.2; // [-SPAWN / 2, SPAWN / 2]

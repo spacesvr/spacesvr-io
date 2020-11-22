@@ -8,13 +8,13 @@ import { KeyframeEnvironment, Keyframe, Fog } from "spacesvr";
 import { Background } from "spacesvr/components";
 import { Color, Vector3 } from "three";
 
-const RENDER_DIST = 50;
+const RENDER_DIST = 25;
 
 softShadows({
-  frustrum: 3.75, // Frustrum width (default: 3.75)
-  size: 0.001, // World size (default: 0.005)
+  frustrum: 3.5, // Frustrum width (default: 3.75)
+  size: 0.002, // World size (default: 0.005)
   near: 7.5, // Near plane (default: 9.5)
-  samples: 17, // Samples (default: 17)
+  samples: 30, // Samples (default: 17)
   rings: 11, // Rings (default: 11)
 });
 
@@ -33,7 +33,7 @@ const SpacesVR = () => {
   return (
     <KeyframeEnvironment
       keyframes={keyframes}
-      canvasProps={{ camera: { near: 0.0001 } }}
+      canvasProps={{ camera: { near: 0.0001, far: 150 } }}
     >
       <Fog color={new Color(0xfffffff)} near={0} far={RENDER_DIST} />
       <Background color={0xffffff} />
@@ -44,14 +44,16 @@ const SpacesVR = () => {
       <Entities renderdist={RENDER_DIST} />
       <ambientLight intensity={0.3} />
       <directionalLight
-        position={[0, RENDER_DIST, 0]}
+        position={[0, RENDER_DIST - 5, 0]}
         intensity={2}
         castShadow
         shadow-mapSize-height={2048}
         shadow-mapSize-width={2048}
-        shadow-camera-left={-RENDER_DIST}
+        shadow-camera-near={2}
+        shadow-camera-far={RENDER_DIST}
         shadow-camera-right={RENDER_DIST}
         shadow-camera-top={RENDER_DIST}
+        shadow-camera-left={-RENDER_DIST}
         shadow-camera-bottom={-RENDER_DIST}
       />
     </KeyframeEnvironment>
