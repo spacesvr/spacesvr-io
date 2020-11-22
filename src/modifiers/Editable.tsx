@@ -21,7 +21,6 @@ const Editable = (props: EditableProps) => {
       if (!controls) {
         return;
       }
-      console.log(controls);
       controls.setMode("translate");
       // const callback = (event) =>
       //   event.value ? player.controls.lock() : player.controls.unlock;
