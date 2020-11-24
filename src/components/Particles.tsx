@@ -2,7 +2,7 @@ import { useMemo } from "react";
 import { BufferAttribute, BufferGeometry, Color, ShaderMaterial } from "three";
 import { useFrame } from "react-three-fiber";
 
-const COUNT = 99999;
+const COUNT = 9999;
 
 const Particles = () => {
   const geo = useMemo(() => {
@@ -36,7 +36,7 @@ const Particles = () => {
   const mat = useMemo(() => {
     return new ShaderMaterial({
       uniforms: {
-        color: { value: new Color(0xd0d0d0) },
+        color: { value: new Color(0xffffff) },
         time: { value: 0 },
       },
       vertexShader: `
@@ -54,6 +54,8 @@ const Particles = () => {
             theta = theta + 0.2 * mvVelocity.x * sin(time * 4.0);
             phi = phi + 0.2 * mvVelocity.y * cos(time * 4.0);
             rad = rad + 0.2 * mvVelocity.z * sin(time * 4.0);
+            
+            // rad = min(rad, 0.75);
             
             float x = rad * sin(theta) * cos(phi);
             float y = rad * sin(theta) * sin(phi);

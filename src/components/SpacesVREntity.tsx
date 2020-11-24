@@ -19,15 +19,7 @@ const SpacesVREntity = (props: JSX.IntrinsicElements["group"]) => {
       <SpacesHome position-y={HEIGHT} />
       <mesh position-y={HEIGHT} rotation-x={Math.PI}>
         <sphereBufferGeometry
-          args={[
-            RADIUS,
-            SUBDIVISIONS,
-            SUBDIVISIONS,
-            0,
-            Math.PI * 2,
-            0,
-            -Math.PI / 2,
-          ]}
+          args={[RADIUS + 0.01, SUBDIVISIONS, SUBDIVISIONS]}
         />
         <meshStandardMaterial color={0xffffff} side={THREE.DoubleSide} />
       </mesh>
@@ -51,6 +43,7 @@ const SpacesVREntity = (props: JSX.IntrinsicElements["group"]) => {
           displacementScale={0.2}
           alphaMap={alphaMap}
           bumpMap={heightmap}
+          depthWrite={true}
         />
       </mesh>
     </group>

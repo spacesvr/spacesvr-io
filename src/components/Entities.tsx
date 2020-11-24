@@ -13,21 +13,32 @@ const SPACESVR_ENTITY = new Vector3(0, ENTITY_RADIUS + 0.1, 0);
 type GenericEntityProps = {
   seed: number;
   position: Vector3;
+  renderdist: number;
 };
 
 const GenericEntity = (props: GenericEntityProps) => {
-  const { seed, position } = props;
+  const { seed, position, renderdist } = props;
 
   const color = seed * 0xffffff;
+  const SPAWN_Y = renderdist * SPAWN_Y_MULT;
+  const shadowOpacity = (SPAWN_Y - position.y) / SPAWN_Y;
 
   return (
     <group position={position}>
       <Floating height={0.1}>
-        <mesh castShadow receiveShadow>
+        <mesh>
           <sphereBufferGeometry args={[ENTITY_RADIUS, 20, 20]} />
           <meshStandardMaterial color={color} />
         </mesh>
       </Floating>
+      <mesh position={[0, -position.y, 0]} rotation-x={-Math.PI / 2}>
+        <circleBufferGeometry args={[ENTITY_RADIUS, 20]} />
+        <meshBasicMaterial
+          color={"black"}
+          transparent
+          opacity={shadowOpacity}
+        />
+      </mesh>
     </group>
   );
 };
@@ -70,6 +81,7 @@ const Entities = (props: { renderdist: number }) => {
       arr.push({
         seed: Math.random(),
         position,
+        renderdist,
       });
     }
     return arr;
