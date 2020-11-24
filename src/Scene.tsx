@@ -11,13 +11,13 @@ import Particles from "./components/Particles";
 
 const RENDER_DIST = 25;
 
-softShadows({
-  frustrum: 3.5, // Frustrum width (default: 3.75)
-  size: 0.002, // World size (default: 0.005)
-  near: 7.5, // Near plane (default: 9.5)
-  samples: 30, // Samples (default: 17)
-  rings: 11, // Rings (default: 11)
-});
+// softShadows({
+//   frustrum: 3.5, // Frustrum width (default: 3.75)
+//   size: 0.002, // World size (default: 0.005)
+//   near: 7.5, // Near plane (default: 9.5)
+//   samples: 30, // Samples (default: 17)
+//   rings: 11, // Rings (default: 11)
+// });
 
 const SpacesVR = () => {
   useAnalytics();
@@ -34,7 +34,7 @@ const SpacesVR = () => {
   return (
     <KeyframeEnvironment
       keyframes={keyframes}
-      canvasProps={{ camera: { near: 0.0001, far: 150 } }}
+      canvasProps={{ shadowMap: false, camera: { near: 0.0001, far: 150 } }}
     >
       <Fog color={new Color(0xfffffff)} near={0} far={RENDER_DIST} />
       <Background color={0xffffff} />
