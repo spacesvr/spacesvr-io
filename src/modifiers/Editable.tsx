@@ -1,6 +1,6 @@
-import { ReactElement, useEffect, useRef } from "react";
+import { ReactElement, useRef } from "react";
 import { Group } from "three";
-import { Interactable, useEnvironment } from "spacesvr/main";
+import { Interactable } from "spacesvr/main";
 import { TransformControls } from "@react-three/drei";
 
 type EditableProps = {
@@ -11,7 +11,6 @@ const Editable = (props: EditableProps) => {
   const { children } = props;
 
   const group = useRef<Group>();
-  const { player } = useEnvironment();
   const transform = useRef<TransformControls>();
 
   return (

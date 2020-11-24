@@ -7,6 +7,7 @@ import Entities from "components/Entities";
 import { KeyframeEnvironment, Keyframe, Fog } from "spacesvr";
 import { Background } from "spacesvr/components";
 import { Color, Vector3 } from "three";
+import Particles from "./components/Particles";
 
 const RENDER_DIST = 25;
 
@@ -41,6 +42,7 @@ const SpacesVR = () => {
         <SpacesVREntity rotation-y={Math.PI} />
       </Suspense>
       <Floor />
+      <Particles />
       <Entities renderdist={RENDER_DIST} />
       <ambientLight intensity={0.3} />
       <directionalLight
