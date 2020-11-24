@@ -2,7 +2,7 @@ import { useMemo } from "react";
 import { BufferAttribute, BufferGeometry, Color, ShaderMaterial } from "three";
 import { useFrame } from "react-three-fiber";
 
-const COUNT = 9999;
+const COUNT = 99999;
 
 const Particles = () => {
   const geo = useMemo(() => {
