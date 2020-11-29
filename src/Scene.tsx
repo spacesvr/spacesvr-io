@@ -7,7 +7,6 @@ import { KeyframeEnvironment, Keyframe, Fog } from "spacesvr";
 import { Background } from "spacesvr/components";
 import { Color, Vector3 } from "three";
 import Particles from "./components/Particles";
-import { Stars } from "@react-three/drei";
 
 const RENDER_DIST = 25;
 

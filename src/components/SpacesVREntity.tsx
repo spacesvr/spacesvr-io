@@ -1,7 +1,6 @@
 import SpacesHome from "./SpacesHome";
 import { useLoader } from "react-three-fiber";
 import * as THREE from "three";
-import { Stars } from "@react-three/drei";
 
 const RADIUS = 0.75;
 const HEIGHT = RADIUS + 0.1;
@@ -24,14 +23,6 @@ const SpacesVREntity = (props: JSX.IntrinsicElements["group"]) => {
           <sphereBufferGeometry args={[RADIUS, SUBDIVISIONS, SUBDIVISIONS]} />
           <meshStandardMaterial color={0x000000} side={THREE.DoubleSide} />
         </mesh>
-        {/* stars */}
-        <Stars
-          radius={RADIUS - 0.385}
-          depth={0}
-          count={3000}
-          fade
-          factor={0.008}
-        />
         {/* outer white sphere */}
         <mesh rotation-x={Math.PI}>
           <sphereBufferGeometry
