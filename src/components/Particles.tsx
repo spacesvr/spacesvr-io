@@ -2,7 +2,7 @@ import { useMemo } from "react";
 import { BufferAttribute, BufferGeometry, Color, ShaderMaterial } from "three";
 import { useFrame } from "react-three-fiber";
 
-const COUNT = 999;
+const COUNT = 400;
 
 const Particles = () => {
   const geo = useMemo(() => {
@@ -24,9 +24,9 @@ const Particles = () => {
       position[i * 3 + 1] = rad * Math.cos(theta) + 0.85;
       position[i * 3 + 2] = rad * Math.sin(theta) * Math.sin(phi);
 
-      velocities[i * 3] = (Math.random() - 0.5) * 0.4; // theta
-      velocities[i * 3 + 1] = (Math.random() - 0.5) * 0.4; // phi
-      velocities[i * 3 + 2] = (Math.random() - 0.5) * 0.4; // rad
+      velocities[i * 3] = (Math.random() - 0.5) * 0.6; // theta
+      velocities[i * 3 + 1] = (Math.random() - 0.5) * 0.6; // phi
+      velocities[i * 3 + 2] = (Math.random() - 0.5) * 0.6; // rad
 
       scales[i] = Math.random() * 1.4 + 1;
     }
@@ -57,7 +57,7 @@ const Particles = () => {
             float theta = mvPolars.x + 0.2 * mvVelocity.x * sin(time * 4.0);
             float phi = mvPolars.y + 0.2 * mvVelocity.y * cos(time * 3.0);
             float rad = mvPolars.z + 0.2 * mvVelocity.z * sin(time * 2.0);
-            rad = min(rad, 0.75);
+            rad = min(rad, 0.74);
             
             float x = rad * sin(theta) * cos(phi);
             float y = rad * cos(theta) + 0.85;
@@ -66,7 +66,7 @@ const Particles = () => {
             gl_Position = projectionMatrix * modelViewMatrix * vec4(x, y, z, 1.0);
             
             float depth = gl_Position.z / gl_Position.w;
-            gl_PointSize = 3.0 * depth;
+            gl_PointSize = 2.5 * depth;
           }
       `,
       fragmentShader: `

@@ -1,6 +1,7 @@
 import SpacesHome from "./SpacesHome";
 import { useLoader } from "react-three-fiber";
 import * as THREE from "three";
+import GradientSky from "./GradientSky";
 
 const RADIUS = 0.75;
 const HEIGHT = RADIUS + 0.1;
@@ -19,10 +20,10 @@ const SpacesVREntity = (props: JSX.IntrinsicElements["group"]) => {
       <group position-y={HEIGHT}>
         <SpacesHome />
         {/* inner night sky */}
-        <mesh>
-          <sphereBufferGeometry args={[RADIUS, SUBDIVISIONS, SUBDIVISIONS]} />
-          <meshStandardMaterial color={0x000000} side={THREE.DoubleSide} />
-        </mesh>
+        <GradientSky
+          radius={INNER_RADIUS}
+          stops={["#967577", "#e2beb7", "#dfc1bf"]}
+        />
         {/* outer white sphere */}
         <mesh rotation-x={Math.PI}>
           <sphereBufferGeometry
