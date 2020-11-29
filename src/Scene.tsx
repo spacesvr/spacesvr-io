@@ -7,6 +7,7 @@ import { KeyframeEnvironment, Keyframe, Fog } from "spacesvr";
 import { Background } from "spacesvr/components";
 import { Color, Vector3 } from "three";
 import Particles from "./components/Particles";
+import { Stars } from "@react-three/drei";
 
 const RENDER_DIST = 25;
 
@@ -14,12 +15,12 @@ const SpacesVR = () => {
   useAnalytics();
 
   const keyframes: Keyframe[] = [
-    { label: "over", position: new Vector3(0.5, 1.5, 1) },
-    { label: "entrance", position: new Vector3(0, 0.855 + 0.48, 0.4) },
+    { label: "over", position: new Vector3(0.75, 1.25, 1.25) },
+    { label: "entrance", position: new Vector3(0, 0.855 + 0.35, 0.43) },
     { label: "campfire", position: new Vector3(0, 0.855, 0) },
-    { label: "blue", position: new Vector3(-0.065, 0.855, -0.02) },
-    { label: "red", position: new Vector3(0, 0.855, -0.07) },
-    { label: "purple", position: new Vector3(0.064, 0.86, 0) },
+    { label: "pink", position: new Vector3(-0.069, 0.8575, 0) },
+    { label: "blue", position: new Vector3(0, 0.861, -0.04) },
+    { label: "green", position: new Vector3(0.053, 0.8575, 0.02) },
   ];
 
   return (
@@ -30,7 +31,7 @@ const SpacesVR = () => {
         gl: { depth: true, stencil: true },
       }}
     >
-      <Fog color={new Color(0xfffffff)} near={0} far={RENDER_DIST} />
+      <Fog color={new Color(0xfffffff)} near={2} far={RENDER_DIST} />
       <Background color={0xffffff} />
       <Suspense fallback={null}>
         <SpacesVREntity rotation-y={Math.PI} />

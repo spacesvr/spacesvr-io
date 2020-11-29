@@ -1,26 +1,30 @@
-import HomeBlue from "models/HomeBlue";
-import HomePurple from "models/HomePurple";
-import HomeRed from "models/HomeRed";
-import React, { useMemo } from "react";
+import AboutSpace from "models/AboutSpace";
+import ContactSpace from "models/ContactSpace";
+import ServiceSpace from "models/ServiceSpace";
+import React from "react";
 import { Logo } from "spacesvr/components";
 import Orbiting from "../../modifiers/Orbiting";
-import { SpotLight } from "three";
 
 const SpacesHome = (props: JSX.IntrinsicElements["group"]) => {
   return (
     <group {...props}>
-      <group scale={[0.00075, 0.00075, 0.00075]}>
-        <group position={[108, 0, 34]} rotation-y={0.15}>
-          <HomeBlue />
+      <group scale={[0.004, 0.004, 0.004]}>
+        <group position={[17, 0, 3.5]} rotation-y={-0.15}>
+          <AboutSpace />
         </group>
-        <group position={[-130, 0, 10]} rotation-y={Math.PI / 2 + 0.3}>
-          <HomePurple />
+        <group position={[-16, 0, -3]} rotation-y={Math.PI / 2 + 0.3}>
+          <ContactSpace />
         </group>
-        <group position-z={115} rotation-y={-Math.PI / 2}>
-          <HomeRed />
+        <group position-z={18} rotation-y={-Math.PI / 2}>
+          <ServiceSpace />
         </group>
-        <Orbiting dist={90}>
-          <Logo floating rotating position={[0, 90, 0]} scale={[15, 15, 15]} />
+        <Orbiting dist={9}>
+          <Logo
+            floating
+            rotating
+            position={[0, 9, 0]}
+            scale={[1.5, 1.5, 1.5]}
+          />
         </Orbiting>
       </group>
     </group>
