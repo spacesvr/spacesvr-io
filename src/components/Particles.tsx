@@ -2,7 +2,7 @@ import { useMemo } from "react";
 import { BufferAttribute, BufferGeometry, Color, ShaderMaterial } from "three";
 import { useFrame } from "react-three-fiber";
 
-const COUNT = 400;
+const COUNT = 600;
 
 const Particles = () => {
   const geo = useMemo(() => {
@@ -51,6 +51,7 @@ const Particles = () => {
           attribute vec3 polars;
           uniform float time;
           void main() {
+          
             vec4 mvPolars = vec4(polars, 1.0);
             vec4 mvVelocity = vec4(velocity, 1.0);
             
@@ -65,8 +66,8 @@ const Particles = () => {
             
             gl_Position = projectionMatrix * modelViewMatrix * vec4(x, y, z, 1.0);
             
-            float depth = gl_Position.z / gl_Position.w;
-            gl_PointSize = 2.5 * depth;
+            float depth = gl_Position.w;
+            gl_PointSize = 1.2;
           }
       `,
       fragmentShader: `
