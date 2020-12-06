@@ -29,7 +29,7 @@ const SpacesVREntity = (props: JSX.IntrinsicElements["group"]) => {
           <sphereBufferGeometry
             args={[RADIUS + 0.01, SUBDIVISIONS, SUBDIVISIONS]}
           />
-          <meshStandardMaterial color={0xffffff} side={THREE.DoubleSide} />
+          <meshBasicMaterial color={0xffffff} side={THREE.DoubleSide} />
         </mesh>
         {/* circle geometry for shadow */}
         <mesh
@@ -47,11 +47,7 @@ const SpacesVREntity = (props: JSX.IntrinsicElements["group"]) => {
           receiveShadow
         >
           <circleBufferGeometry args={[INNER_RADIUS, SUBDIVISIONS * 10]} />
-          <meshStandardMaterial
-            transparent
-            opacity={0}
-            side={THREE.DoubleSide}
-          />
+          <meshBasicMaterial transparent opacity={0} side={THREE.DoubleSide} />
         </mesh>
         {/* mountains */}
         <mesh rotation-x={-Math.PI / 2} receiveShadow>

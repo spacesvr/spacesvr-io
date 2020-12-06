@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import Rocks from "models/Rocks";
 import { Logo } from "spacesvr";
 import Orbiting from "../../modifiers/Orbiting";
@@ -6,7 +7,9 @@ const SpacesHome = (props: JSX.IntrinsicElements["group"]) => {
   return (
     <group {...props}>
       <group scale={[0.00275, 0.00275, 0.00275]}>
-        <Rocks />
+        <Suspense fallback={null}>
+          <Rocks />
+        </Suspense>
         <Orbiting dist={9}>
           <Logo
             floating

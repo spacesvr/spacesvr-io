@@ -6,7 +6,7 @@ const Floor = () => {
     <group>
       <mesh rotation-x={-Math.PI / 2} position-y={-0.2}>
         <planeBufferGeometry args={[PLANE_WIDTH, PLANE_HEIGHT]} />
-        <meshStandardMaterial />
+        <meshBasicMaterial color="white" />
       </mesh>
     </group>
   );

@@ -32,27 +32,27 @@ const GradientSky = (props: GradientSky) => {
           }
       `,
       fragmentShader: `
-          uniform float radius;
+          uniform highp float radius;
           uniform int num_colors;
           uniform int colors[${NUM_COLORS}];
           varying vec3 absPosition;
       
           vec3 hexToVec(int hex) {
-            float r = float((hex >> 0x10) & 0xFF);
-            float g = float((hex >> 0x8) & 0xFF);
-            float b = float(hex & 0xFF);
+            highp float r = float((hex >> 0x10) & 0xFF);
+            highp float g = float((hex >> 0x8) & 0xFF);
+            highp float b = float(hex & 0xFF);
             return vec3(r / 255.0, g / 255.0, b / 255.0);
           }
       
           void main() {
-            float yCoord = (gl_FragCoord.y / gl_FragCoord.w);
-            float height = (absPosition.y) / radius;
+            highp float yCoord = (gl_FragCoord.y / gl_FragCoord.w);
+            highp float height = (absPosition.y) / radius;
             
             vec3 color = hexToVec(colors[0]);
             for(int i = 1; i < num_colors; i++) {
               vec3 thisColor = hexToVec(colors[i]);
-              float lastPerc = float(i - 1) / float(num_colors);
-              float thisPerc = float(i) / float(num_colors);
+              highp float lastPerc = float(i - 1) / float(num_colors);
+              highp float thisPerc = float(i) / float(num_colors);
               color = mix(color, thisColor, smoothstep(lastPerc, thisPerc, height));
             }
             

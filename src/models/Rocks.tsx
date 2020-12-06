@@ -9,15 +9,15 @@ import { convertToBasic } from "../utils/material";
 
 type GLTFResult = GLTF & {
   nodes: {
-    ROCKS: THREE.Mesh;
+    ROCK: THREE.Mesh;
   };
   materials: {
-    ROCKS: THREE.MeshStandardMaterial;
+    ["ROCK.MAT"]: THREE.MeshStandardMaterial;
   };
 };
 
 const FILE_URL =
-  "https://d27rt3a60hh1lx.cloudfront.net/models/Spaces9_Rocks-1606731798/spacesvr_09.1.glb";
+  "https://d27rt3a60hh1lx.cloudfront.net/models/Rocks3-1607223507/ROCKS_003.export.glb";
 
 export default function Model(props: JSX.IntrinsicElements["group"]) {
   const group = useRef<THREE.Group>();
@@ -30,12 +30,12 @@ export default function Model(props: JSX.IntrinsicElements["group"]) {
 
   return (
     <group ref={group} {...props}>
-      <group>
+      <group scale={[120, 120, 120]}>
         <mesh
-          castShadow
-          material={materials.ROCKS}
-          geometry={nodes.ROCKS.geometry}
-          name="ROCKS"
+          material={materials["ROCK.MAT"]}
+          geometry={nodes.ROCK.geometry}
+          name="ROCK"
+          position={[0.0071, 0.0433, 0.1211]}
         />
       </group>
     </group>
