@@ -1,5 +1,6 @@
+/* eslint-disable */
 import { useMemo, useRef } from "react";
-import { Mesh, ShaderMaterial, Vector, Vector3 } from "three";
+import { Mesh, ShaderMaterial, Vector3 } from "three";
 import { useFrame, useLoader, useThree } from "react-three-fiber";
 import { frag, vertex } from "./definitions/shaders";
 import * as THREE from "three";
@@ -16,6 +17,9 @@ type FireProps = {
   depth: number;
   sliceSpacing: number;
 } & JSX.IntrinsicElements["group"];
+
+// ported from this repo:
+// https://github.com/yomotsu/VolumetricFire
 
 const Fire = (props: FireProps) => {
   const { width, height, depth, sliceSpacing, ...restProps } = props;
@@ -319,6 +323,7 @@ const Fire = (props: FireProps) => {
     mesh.current.geometry.index.needsUpdate = true;
     mesh.current.geometry.attributes.position.needsUpdate = true;
     mesh.current.geometry.attributes.tex.needsUpdate = true;
+    /* eslint-enable */
   };
 
   useFrame(({ clock }) => {
