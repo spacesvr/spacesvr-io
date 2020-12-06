@@ -55,13 +55,12 @@ const SpacesVREntity = (props: JSX.IntrinsicElements["group"]) => {
             args={[INNER_RADIUS * 2, INNER_RADIUS * 2, 500, 500]}
           />
           <meshStandardMaterial
-            color={0xbbbbbb}
+            color={0xc9c9c9}
             transparent
             displacementMap={heightmap}
             displacementScale={0.2}
             alphaMap={alphaMap}
             bumpMap={heightmap}
-            depthWrite={true}
           />
         </mesh>
       </group>
