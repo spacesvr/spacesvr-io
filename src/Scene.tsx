@@ -15,8 +15,8 @@ const SpacesVR = () => {
 
   const keyframes: Keyframe[] = [
     { label: "over", position: new Vector3(0.75, 1.25, 1.25) },
-    { label: "entrance", position: new Vector3(0, 0.855 + 0.35, 0.43) },
-    { label: "campfire", position: new Vector3(0, 0.855, 0) },
+    { label: "entrance", position: new Vector3(0, 0.855, 0.55) },
+    { label: "campfire", position: new Vector3(0, 0.855, -0.01) },
   ];
 
   return (
@@ -28,7 +28,7 @@ const SpacesVR = () => {
         gl: { depth: true, stencil: true },
       }}
     >
-      <Radiance src="/assets/gradient.hdr" />
+      <Radiance src="/assets/gradient-dark.hdr" />
       <Fog color={new Color(0xfffffff)} near={2} far={RENDER_DIST} />
       <Background color={0xffffff} />
       <SpacesVREntity rotation-y={Math.PI} />

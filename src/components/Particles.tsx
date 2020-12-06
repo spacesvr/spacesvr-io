@@ -58,11 +58,20 @@ const Particles = () => {
             float theta = mvPolars.x + 0.2 * mvVelocity.x * sin(time * 4.0);
             float phi = mvPolars.y + 0.2 * mvVelocity.y * cos(time * 3.0);
             float rad = mvPolars.z + 0.2 * mvVelocity.z * sin(time * 2.0);
-            rad = min(rad, 0.74);
+            rad = min(rad, 0.747);
             
             float x = rad * sin(theta) * cos(phi);
-            float y = rad * cos(theta) + 0.85;
+            float y = rad * cos(theta) + 0.85 - time * 0.2;
             float z = rad * sin(theta) * sin(phi);
+            
+            while(y < 0.84) {
+              y += 0.74;
+            }
+            
+            float newRad = sqrt(x * x + y * y + z * z);
+            newRad = min(newRad, 0.747);
+            x = newRad * sin(theta) * cos(phi);
+            z = newRad * sin(theta) * sin(phi);
             
             gl_Position = projectionMatrix * modelViewMatrix * vec4(x, y, z, 1.0);
             
