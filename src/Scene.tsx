@@ -6,6 +6,7 @@ import Entities from "components/Entities";
 import { KeyframeEnvironment, Keyframe, Fog, Background } from "spacesvr";
 import { Color, Vector3 } from "three";
 import Particles from "./components/Particles";
+import { Effects } from "./effects/Effects";
 
 const RENDER_DIST = 25;
 
@@ -23,6 +24,7 @@ const SpacesVR = () => {
 
   return (
     <KeyframeEnvironment
+      effects={Effects}
       keyframes={keyframes}
       canvasProps={{
         camera: { near: 0.0001, far: RENDER_DIST * 2 },

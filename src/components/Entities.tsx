@@ -21,7 +21,7 @@ const GenericEntity = (props: GenericEntityProps) => {
 
   const color = seed * 0xffffff;
   const SPAWN_Y = renderdist * SPAWN_Y_MULT;
-  const shadowOpacity = (SPAWN_Y - position.y) / SPAWN_Y;
+  const shadowOpacity = ((SPAWN_Y - position.y) / SPAWN_Y) * 0.8;
 
   return (
     <group position={position}>
@@ -31,13 +31,12 @@ const GenericEntity = (props: GenericEntityProps) => {
           <meshStandardMaterial color={color} />
         </mesh>
       </Floating>
-      <mesh position={[0, -position.y, 0]} rotation-x={-Math.PI / 2}>
-        <circleBufferGeometry args={[ENTITY_RADIUS, 20]} />
-        <meshBasicMaterial
-          color={"black"}
-          transparent
-          opacity={shadowOpacity}
-        />
+      <mesh
+        position={[0, -position.y + Math.random() * 0.005, 0]}
+        rotation-x={-Math.PI / 2}
+      >
+        <circleBufferGeometry args={[ENTITY_RADIUS, 50]} />
+        <meshBasicMaterial color={"gray"} transparent opacity={shadowOpacity} />
       </mesh>
     </group>
   );

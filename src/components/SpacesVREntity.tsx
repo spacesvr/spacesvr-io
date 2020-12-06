@@ -31,6 +31,14 @@ const SpacesVREntity = (props: JSX.IntrinsicElements["group"]) => {
           />
           <meshStandardMaterial color={0xffffff} side={THREE.DoubleSide} />
         </mesh>
+        {/* circle geometry for shadow */}
+        <mesh
+          position={[0, -HEIGHT + Math.random() * 0.005, 0]}
+          rotation-x={-Math.PI / 2}
+        >
+          <circleBufferGeometry args={[RADIUS, 50]} />
+          <meshBasicMaterial color={"gray"} transparent opacity={0.7} />
+        </mesh>
         {/* circle geometry as base for mountain */}
         <mesh
           position-y={INNER_RADIUS}
