@@ -16,7 +16,7 @@ const SpacesVR = () => {
   const keyframes: Keyframe[] = [
     { label: "over", position: new Vector3(0.75, 1.25, 1.25) },
     { label: "entrance", position: new Vector3(0, 0.855, 0.55) },
-    { label: "campfire", position: new Vector3(0, 0.855, -0.01) },
+    { label: "campfire", position: new Vector3(0, 0.855, -0.0135) },
   ];
 
   return (

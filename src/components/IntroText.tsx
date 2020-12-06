@@ -1,6 +1,7 @@
-import { Floating } from "spacesvr";
+import { Floating, Arrow } from "spacesvr";
 import { Material } from "three";
 import { Text } from "@react-three/drei";
+import Mail from "../models/Mail";
 
 const WIDTH = 8;
 const HEIGHT = 4.5;
@@ -29,11 +30,11 @@ const IntroText = (props: IntroTextProps) => {
           <boxBufferGeometry args={[WIDTH, HEIGHT, DEPTH]} />
         </mesh>
         <group rotation-y={Math.PI} position-y={HEIGHT}>
-          <Text fontSize={1} color="black" textAlign="left" anchorY="top">
+          <Text fontSize={0.8} color="black" textAlign="left" anchorY="top">
             SPACES
           </Text>
           <Text
-            fontSize={0.35}
+            fontSize={0.3}
             maxWidth={WIDTH * 0.9}
             position-y={-1.5}
             anchorY="top"
@@ -45,8 +46,36 @@ const IntroText = (props: IntroTextProps) => {
             hot coffee and read a book about why you should fuck shit up with
             us.
           </Text>
+          <Text
+            fontSize={0.3}
+            maxWidth={WIDTH * 0.9}
+            position-y={-HEIGHT * 0.9}
+            position-x={(WIDTH / 2) * 0.7}
+            anchorY="bottom"
+            anchorX="right"
+            color="black"
+            textAlign="right"
+          >
+            Apply Here
+          </Text>
+          <Arrow
+            dark
+            rotation-z={Math.PI}
+            position-y={-HEIGHT * 0.865}
+            position-x={(WIDTH / 2) * 0.85}
+            scale={[1.5, 1.5, 1.5]}
+          />
         </group>
       </Floating>
+      <group
+        scale={[4, 4, 4]}
+        rotation-y={Math.PI - 0.35}
+        position-x={-WIDTH / 2 - 0.85}
+      >
+        <Floating height={0.06}>
+          <Mail />
+        </Floating>
+      </group>
     </group>
   );
 };

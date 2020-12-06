@@ -156,11 +156,14 @@ const Fire = (props: FireProps) => {
     // Aligning slices
     let sliceDistance = Math.floor(maxDistance / sliceSpacing) * sliceSpacing;
 
+    // @ts-ignore
     const activeEdges = [];
     let firstEdge = 0;
     let nextEdge = 0;
+    // @ts-ignore
     const expirations = new PriorityQueue();
 
+    // @ts-ignore
     const createEdge = function (startIndex, endIndex) {
       if (nextEdge >= 12) {
         return undefined;
@@ -213,11 +216,14 @@ const Fire = (props: FireProps) => {
 
     for (i = 0; i < 3; i = (i + 1) | 0) {
       const activeEdge = createEdge.call(
+        // @ts-ignore
         this,
         maxCorner,
         cornerNeighbors[maxCorner][i]
       );
+      // @ts-ignore
       activeEdge.prev = (i + 2) % 3;
+      // @ts-ignore
       activeEdge.next = (i + 1) % 3;
     }
 
@@ -232,7 +238,9 @@ const Fire = (props: FireProps) => {
         }
 
         if (
+          // @ts-ignore
           edge.endIndex !== activeEdges[edge.prev].endIndex &&
+          // @ts-ignore
           edge.endIndex !== activeEdges[edge.next].endIndex
         ) {
           // split this edge.
@@ -240,21 +248,30 @@ const Fire = (props: FireProps) => {
 
           // create two new edges.
           const activeEdge1 = createEdge.call(
+            // @ts-ignore
             this,
             edge.endIndex,
             incomingEdges[edge.endIndex][edge.startIndex]
           );
+          // @ts-ignore
           activeEdge1.prev = edge.prev;
+          // @ts-ignore
           activeEdges[edge.prev].next = nextEdge - 1;
+          // @ts-ignore
           activeEdge1.next = nextEdge;
 
           const activeEdge2 = createEdge.call(
+            // @ts-ignore
             this,
             edge.endIndex,
+            // @ts-ignore
             incomingEdges[edge.endIndex][activeEdge1.endIndex]
           );
+          // @ts-ignore
           activeEdge2.prev = nextEdge - 2;
+          // @ts-ignore
           activeEdge2.next = edge.next;
+          // @ts-ignore
           activeEdges[activeEdge2.next].prev = nextEdge - 1;
           firstEdge = nextEdge - 1;
         } else {
@@ -262,11 +279,14 @@ const Fire = (props: FireProps) => {
           let prev;
           let next;
 
+          // @ts-ignore
           if (edge.endIndex === activeEdges[edge.prev].endIndex) {
+            // @ts-ignore
             prev = activeEdges[edge.prev];
             next = edge;
           } else {
             prev = edge;
+            // @ts-ignore
             next = activeEdges[edge.next];
           }
 
@@ -275,13 +295,18 @@ const Fire = (props: FireProps) => {
 
           // make new edge
           const activeEdge = createEdge.call(
+            // @ts-ignore
             this,
             edge.endIndex,
             incomingEdges[edge.endIndex][prev.startIndex]
           );
+          // @ts-ignore
           activeEdge.prev = prev.prev;
+          // @ts-ignore
           activeEdges[activeEdge.prev].next = nextEdge - 1;
+          // @ts-ignore
           activeEdge.next = next.next;
+          // @ts-ignore
           activeEdges[activeEdge.next].prev = nextEdge - 1;
           firstEdge = nextEdge - 1;
         }
@@ -292,6 +317,7 @@ const Fire = (props: FireProps) => {
 
       do {
         ++count;
+        // @ts-ignore
         const activeEdge = activeEdges[cur];
         points.push(activeEdge.pos.x, activeEdge.pos.y, activeEdge.pos.z);
         texCoords.push(activeEdge.tex.x, activeEdge.tex.y, activeEdge.tex.z);
@@ -311,17 +337,24 @@ const Fire = (props: FireProps) => {
     return [indexes, points, texCoords];
   };
 
+  // @ts-ignore
   const updateGeometry = (indexes, points, texCoords) => {
     if (!mesh.current || !mesh.current.geometry) {
       return;
     }
 
+    // @ts-ignore
     mesh.current.geometry.index.array.set(indexes);
+    // @ts-ignore
     mesh.current.geometry.attributes.position.array.set(points);
+    // @ts-ignore
     mesh.current.geometry.attributes.tex.array.set(texCoords);
 
+    // @ts-ignore
     mesh.current.geometry.index.needsUpdate = true;
+    // @ts-ignore
     mesh.current.geometry.attributes.position.needsUpdate = true;
+    // @ts-ignore
     mesh.current.geometry.attributes.tex.needsUpdate = true;
     /* eslint-enable */
   };
