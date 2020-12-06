@@ -9,20 +9,20 @@ import { convertToBasic } from "../utils/material";
 
 type GLTFResult = GLTF & {
   nodes: {
-    ABOUT: THREE.Mesh;
+    STRUCTURES_092: THREE.Mesh;
   };
   materials: {
-    ["ABOUT.MAT"]: THREE.MeshStandardMaterial;
+    ["STRUCTURES_09.2"]: THREE.MeshStandardMaterial;
   };
 };
 
-const GLTF_URL =
-  "https://d27rt3a60hh1lx.cloudfront.net/models/SpacesVR8_1-1606605325/spacesvr_08.1.glb";
+const FILE_URL =
+  "https://d27rt3a60hh1lx.cloudfront.net/models/Spaces9_Buildings-1606733406/spacesvr_09.2.glb";
 
 export default function Model(props: JSX.IntrinsicElements["group"]) {
   const group = useRef<THREE.Group>();
   const { nodes, materials: oldMaterials } = useGLTF(
-    GLTF_URL,
+    FILE_URL,
     "https://www.gstatic.com/draco/versioned/decoders/1.4.0/"
   ) as GLTFResult;
 
@@ -32,15 +32,15 @@ export default function Model(props: JSX.IntrinsicElements["group"]) {
     <group ref={group} {...props}>
       <group>
         <mesh
-          material={materials["ABOUT.MAT"]}
-          geometry={nodes.ABOUT.geometry}
-          name="ABOUT"
-          position={[6.2512, 4.17, -3.2089]}
-          rotation={[0, 0, 0]}
+          castShadow
+          receiveShadow
+          material={materials["STRUCTURES_09.2"]}
+          geometry={nodes.STRUCTURES_092.geometry}
+          name="STRUCTURES_092"
         />
       </group>
     </group>
   );
 }
 
-useGLTF.preload(GLTF_URL);
+useGLTF.preload(FILE_URL);

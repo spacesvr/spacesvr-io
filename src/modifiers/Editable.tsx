@@ -1,6 +1,6 @@
 import { ReactElement, useRef } from "react";
 import { Group } from "three";
-import { Interactable } from "spacesvr/main";
+import { Interactable } from "spacesvr";
 import { TransformControls } from "@react-three/drei";
 
 type EditableProps = {

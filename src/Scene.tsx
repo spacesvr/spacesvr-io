@@ -3,8 +3,7 @@ import { useAnalytics } from "services/analytics";
 import SpacesVREntity from "components/SpacesVREntity";
 import Floor from "components/Floor";
 import Entities from "components/Entities";
-import { KeyframeEnvironment, Keyframe, Fog } from "spacesvr";
-import { Background } from "spacesvr/components";
+import { KeyframeEnvironment, Keyframe, Fog, Background } from "spacesvr";
 import { Color, Vector3 } from "three";
 import Particles from "./components/Particles";
 
@@ -39,7 +38,7 @@ const SpacesVR = () => {
       <Particles />
       <Entities renderdist={RENDER_DIST} />
       <ambientLight intensity={0.3} />
-      <directionalLight intensity={1} />
+      <directionalLight intensity={1} castShadow />
     </KeyframeEnvironment>
   );
 };

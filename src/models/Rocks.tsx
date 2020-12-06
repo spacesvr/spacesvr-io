@@ -9,38 +9,37 @@ import { convertToBasic } from "../utils/material";
 
 type GLTFResult = GLTF & {
   nodes: {
-    ABOUT: THREE.Mesh;
+    ROCKS: THREE.Mesh;
   };
   materials: {
-    ["ABOUT.MAT"]: THREE.MeshStandardMaterial;
+    ROCKS: THREE.MeshStandardMaterial;
   };
 };
 
-const GLTF_URL =
-  "https://d27rt3a60hh1lx.cloudfront.net/models/SpacesVR8_1-1606605325/spacesvr_08.1.glb";
+const FILE_URL =
+  "https://d27rt3a60hh1lx.cloudfront.net/models/Spaces9_Rocks-1606731798/spacesvr_09.1.glb";
 
 export default function Model(props: JSX.IntrinsicElements["group"]) {
   const group = useRef<THREE.Group>();
-  const { nodes, materials: oldMaterials } = useGLTF(
-    GLTF_URL,
+  const { nodes, materials } = useGLTF(
+    FILE_URL,
     "https://www.gstatic.com/draco/versioned/decoders/1.4.0/"
   ) as GLTFResult;
 
-  const materials = convertToBasic(oldMaterials);
+  // const materials = convertToBasic(oldMaterials)
 
   return (
     <group ref={group} {...props}>
       <group>
         <mesh
-          material={materials["ABOUT.MAT"]}
-          geometry={nodes.ABOUT.geometry}
-          name="ABOUT"
-          position={[6.2512, 4.17, -3.2089]}
-          rotation={[0, 0, 0]}
+          castShadow
+          material={materials.ROCKS}
+          geometry={nodes.ROCKS.geometry}
+          name="ROCKS"
         />
       </group>
     </group>
   );
 }
 
-useGLTF.preload(GLTF_URL);
+useGLTF.preload(FILE_URL);

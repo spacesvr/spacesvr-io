@@ -21,7 +21,10 @@ const GLTF_URL =
 
 export default function Model(props: JSX.IntrinsicElements["group"]) {
   const group = useRef<THREE.Group>();
-  const { nodes, materials: oldMaterials } = useGLTF(GLTF_URL) as GLTFResult;
+  const { nodes, materials: oldMaterials } = useGLTF(
+    GLTF_URL,
+    "https://www.gstatic.com/draco/versioned/decoders/1.4.0/"
+  ) as GLTFResult;
 
   const materials = convertToBasic(oldMaterials);
 

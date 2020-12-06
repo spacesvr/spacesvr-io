@@ -67,7 +67,7 @@ const Particles = () => {
             gl_Position = projectionMatrix * modelViewMatrix * vec4(x, y, z, 1.0);
             
             float depth = gl_Position.w;
-            gl_PointSize = 1.2;
+            gl_PointSize = min(0.8 / depth, 1.5);
           }
       `,
       fragmentShader: `

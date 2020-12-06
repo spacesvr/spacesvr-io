@@ -7464,10 +7464,10 @@ source-map@^0.5.0, source-map@^0.5.6, source-map@^0.5.7:
   resolved "https://registry.yarnpkg.com/source-map/-/source-map-0.5.7.tgz#8a039d2d1021d22d1ea14c80d8ea468ba2ef3fcc"
   integrity sha1-igOdLRAh0i0eoUyA2OpGi6LvP8w=
 
-spacesvr@^1.1.3:
-  version "1.1.3"
-  resolved "https://registry.yarnpkg.com/spacesvr/-/spacesvr-1.1.3.tgz#fd639509c137e633c043bea62c4b87535c2ce804"
-  integrity sha512-frmfTIID4HJ4/pxcO6p4yFd65PeLd6qEFScdT+o2KyZBL+DNTfmq50tD3DezHxmpD7nUgCFEls99RI9fXrDA7g==
+spacesvr@^1.2.5:
+  version "1.2.5"
+  resolved "https://registry.yarnpkg.com/spacesvr/-/spacesvr-1.2.5.tgz#a1cd711b62a6ce7e73336ba8a0de22ec2aaf38f1"
+  integrity sha512-25AYP1Mae4DggkjkXayMbqXPr+9RDVwliB+G0Pib5W3B7m+gBxm3Ml4oS4+AYzlepVxX49o2Nemb2femR2+C+g==
   dependencies:
     "@emotion/core" "^10.0.28"
     "@emotion/styled" "^10.0.27"

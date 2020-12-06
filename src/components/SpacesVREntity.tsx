@@ -46,7 +46,7 @@ const SpacesVREntity = (props: JSX.IntrinsicElements["group"]) => {
           />
         </mesh>
         {/* mountains */}
-        <mesh rotation-x={-Math.PI / 2}>
+        <mesh rotation-x={-Math.PI / 2} receiveShadow>
           <planeBufferGeometry
             args={[INNER_RADIUS * 2, INNER_RADIUS * 2, 500, 500]}
           />
